@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction - Encase Packaging</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .left-section {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section {
+                padding: 25px 20px;
+            }
+        }
+
+        /* Main Content */
+        .content {
+            animation: fadeInLeft 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .heading {
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            font-size: 5em;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        @media (max-width: 768px) {
+            .heading h1 {
+                font-size: 3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading h1 {
+                font-size: 2.2em;
+            }
+        }
+
+        .heading .under {
+            color: #6c5ce7;
+            display: block;
+        }
+
+        .heading .construction {
+            color: #2d3436;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .description {
+            color: #636e72;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .description {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .description {
+                font-size: 0.9em;
+            }
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #fd79a8 0%, #e84393 100%);
+            color: #ffffff;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(253, 121, 168, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Right Section with Gradient Wave */
+        .right-section {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .gradient-wave {
+            position: absolute;
+            top: 0;
+            left: -20%;
+            width: 120%;
+            height: 100%;
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 50%, #fd79a8 100%);
+            border-radius: 50% 0 0 50%;
+            animation: waveAnimation 8s ease-in-out infinite;
+        }
+
+        @keyframes waveAnimation {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .illustration {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Construction Crane */
+        .crane {
+            position: absolute;
+            top: 80px;
+            left: 10%;
+            width: 200px;
+            height: 300px;
+            animation: craneSway 3s ease-in-out infinite;
+        }
+
+        @keyframes craneSway {
+            0%, 100% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        .crane-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 120px;
+            background: #2d3436;
+        }
+
+        .crane-boom {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 180px;
+            height: 15px;
+            background: #2d3436;
+            transform-origin: left center;
+            transform: rotate(-10deg);
+        }
+
+        .crane-boom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ff6b35;
+        }
+
+        .crane-hook {
+            position: absolute;
+            top: 80px;
+            right: 10px;
+            width: 3px;
+            height: 60px;
+            background: #2d3436;
+            animation: hookSwing 2s ease-in-out infinite;
+        }
+
+        @keyframes hookSwing {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+        .crane-hook::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: -6px;
+            width: 15px;
+            height: 15px;
+            background: #2d3436;
+            border-radius: 50%;
+        }
+
+        /* Website Monitor */
+        .monitor-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: monitorFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes monitorFloat {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-10px);
+            }
+        }
+
+        .monitor {
+            width: 320px;
+            height: 220px;
+            background: #2d3436;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .monitor-screen {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: #ffffff;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            gap: 10px;
+        }
+
+        .screen-box {
+            height: 20px;
+            background: #dfe6e9;
+            border-radius: 2px;
+            animation: screenPulse 2s ease-in-out infinite;
+        }
+
+        .screen-box:nth-child(1) { width: 60%; animation-delay: 0s; }
+        .screen-box:nth-child(2) { width: 80%; animation-delay: 0.2s; }
+        .screen-box:nth-child(3) { width: 70%; animation-delay: 0.4s; }
+        .screen-box:nth-child(4) { width: 50%; animation-delay: 0.6s; }
+
+        @keyframes screenPulse {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .monitor-stand {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 25px;
+            background: #ffffff;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .monitor-stand::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 6px;
+            background: #dfe6e9;
+        }
+
+        /* Caution Tape */
+        .caution-tape {
+            position: absolute;
+            top: 60%;
+            right: 15%;
+            width: 200px;
+            height: 40px;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff6b35,
+                #ff6b35 20px,
+                #2d3436 20px,
+                #2d3436 40px
+            );
+            transform: rotate(-25deg);
+            animation: tapeWave 3s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes tapeWave {
+            0%, 100% {
+                transform: rotate(-25deg) translateY(0);
+            }
+            50% {
+                transform: rotate(-25deg) translateY(-5px);
+            }
+        }
+
+        /* Construction Sign */
+        .construction-sign {
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            width: 100px;
+            height: 100px;
+            background: #ffd700;
+            border: 4px solid #2d3436;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: signRotate 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes signRotate {
+            0%, 100% {
+                transform: rotate(45deg);
+            }
+            50% {
+                transform: rotate(50deg);
+            }
+        }
+
+        .sign-exclamation {
+            transform: rotate(-45deg);
+            font-size: 3em;
+            font-weight: 900;
+            color: #2d3436;
+        }
+
+        .sign-pole {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 40px;
+            background: #636e72;
+        }
+
+        /* Traffic Cone */
+        .traffic-cone {
+            position: absolute;
+            top: 55%;
+            left: 20%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 60px solid #ff6b35;
+            animation: coneBounce 2s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .traffic-cone::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: -18px;
+            width: 36px;
+            height: 12px;
+            background: #ffffff;
+        }
+
+        @keyframes coneBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Construction Barriers */
+        .barrier {
+            position: absolute;
+            top: 65%;
+            width: 80px;
+            height: 60px;
+            background: #636e72;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .barrier::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: #ff6b35;
+        }
+
+        .barrier::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: #2d3436;
+        }
+
+        .barrier-post {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 25px;
+            background: #636e72;
+        }
+
+        .barrier-post::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 18px;
+            background: #ffd700;
+            border-radius: 50%;
+        }
+
+        .barrier-1 {
+            right: 25%;
+        }
+
+        .barrier-2 {
+            right: 15%;
+        }
+
+        /* Gears */
+        .gear {
+            position: absolute;
+            animation: gearRotate 10s linear infinite;
+        }
+
+        @keyframes gearRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .gear-large {
+            top: 10%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            opacity: 0.3;
+            animation-duration: 15s;
+        }
+
+        .gear-small {
+            bottom: 20%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+            animation-duration: 10s;
+            animation-direction: reverse;
+        }
+
+        .gear svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section {
+                max-width: 100%;
+                padding: 40px 30px;
+            }
+
+            .right-section {
+                min-height: 500px;
+            }
+
+            .monitor {
+                width: 280px;
+                height: 190px;
+            }
+
+            .crane {
+                width: 180px;
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .left-section {
+                padding: 30px 25px;
+            }
+
+            .heading h1 {
+                font-size: 2.8em;
+            }
+
+            .monitor {
+                width: 240px;
+                height: 165px;
+            }
+
+            .crane {
+                width: 150px;
+                height: 220px;
+            }
+
+            .illustration {
+                padding: 40px 20px;
+            }
+
+            .construction-sign {
+                width: 80px;
+                height: 80px;
+            }
+
+            .sign-exclamation {
+                font-size: 2em;
+            }
+
+            .traffic-cone {
+                border-left-width: 15px;
+                border-right-width: 15px;
+                border-bottom-width: 45px;
+            }
+
+            .barrier {
+                width: 60px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section {
+                padding: 25px 20px;
+            }
+
+            .heading h1 {
+                font-size: 2em;
+            }
+
+            .heading .construction {
+                font-size: 0.85em;
+            }
+
+            .btn {
+                padding: 15px 40px;
+                font-size: 0.9em;
+            }
+
+            .right-section {
+                min-height: 400px;
+            }
+
+            .monitor {
+                width: 200px;
+                height: 140px;
+            }
+
+            .monitor-screen {
+                padding: 10px;
+                gap: 6px;
+            }
+
+            .screen-box {
+                height: 12px;
+            }
+
+            .crane {
+                width: 120px;
+                height: 180px;
+            }
+
+            .crane-boom {
+                width: 140px;
+            }
+
+            .caution-tape {
+                width: 150px;
+                height: 30px;
+            }
+
+            .construction-sign {
+                width: 70px;
+                height: 70px;
+            }
+
+            .sign-exclamation {
+                font-size: 1.5em;
+            }
+
+            .traffic-cone {
+                border-left-width: 12px;
+                border-right-width: 12px;
+                border-bottom-width: 35px;
+            }
+
+            .barrier {
+                width: 50px;
+                height: 40px;
+            }
+
+            .gear-large {
+                width: 80px;
+                height: 80px;
+            }
+
+            .gear-small {
+                width: 60px;
+                height: 60px;
+            }
+
+            .illustration {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="content">
+                <div class="heading">
+                    <h1>
+                        <span class="under">UNDER</span>
+                        <span class="construction">CONSTRUCTION</span>
+                    </h1>
+                </div>
+                <p class="description">
+                    We are launching in 30 days. Stay tuned for something amazing!
+                </p>
+                <button class="btn">Back to Home</button>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="gradient-wave"></div>
+            
+            <div class="illustration">
+                <!-- Gears -->
+                <div class="gear gear-large">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M50 10 L55 20 L65 20 L70 10 L80 15 L75 25 L85 25 L85 35 L75 35 L80 45 L70 50 L65 60 L55 60 L50 70 L45 60 L35 60 L30 50 L20 45 L25 35 L15 35 L15 25 L25 25 L20 15 L30 10 L35 20 L45 20 Z" fill="#74b9ff"/>
+                    </svg>
+                </div>
+                <div class="gear gear-small">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M50 10 L55 20 L65 20 L70 10 L80 15 L75 25 L85 25 L85 35 L75 35 L80 45 L70 50 L65 60 L55 60 L50 70 L45 60 L35 60 L30 50 L20 45 L25 35 L15 35 L15 25 L25 25 L20 15 L30 10 L35 20 L45 20 Z" fill="#fd79a8"/>
+                    </svg>
+                </div>
+
+                <!-- Construction Crane -->
+                <div class="crane">
+                    <div class="crane-base"></div>
+                    <div class="crane-boom"></div>
+                    <div class="crane-hook"></div>
+                </div>
+
+                <!-- Website Monitor -->
+                <div class="monitor-container">
+                    <div class="monitor">
+                        <div class="monitor-screen">
+                            <div class="screen-box"></div>
+                            <div class="screen-box"></div>
+                            <div class="screen-box"></div>
+                            <div class="screen-box"></div>
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                </div>
+
+                <!-- Caution Tape -->
+                <div class="caution-tape"></div>
+
+                <!-- Construction Sign -->
+                <div class="construction-sign">
+                    <div class="sign-exclamation">!</div>
+                    <div class="sign-pole"></div>
+                </div>
+
+                <!-- Traffic Cone -->
+                <div class="traffic-cone"></div>
+
+                <!-- Construction Barriers -->
+                <div class="barrier barrier-1">
+                    <div class="barrier-post"></div>
+                </div>
+                <div class="barrier barrier-2">
+                    <div class="barrier-post"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
