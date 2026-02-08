@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -57,7 +57,7 @@
         .bg-circle-1 {
             width: 300px;
             height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
             top: -150px;
             right: -150px;
         }
@@ -65,7 +65,7 @@
         .bg-circle-2 {
             width: 200px;
             height: 200px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
             bottom: -100px;
             left: -100px;
         }
@@ -121,7 +121,7 @@
         }
 
         .heading .under {
-            color: #667eea;
+            color: #2196f3;
             display: block;
         }
 
@@ -133,20 +133,40 @@
 
         /* Description */
         .description {
-            color: #718096;
-            font-size: 1.15em;
-            line-height: 1.8;
             margin-bottom: 40px;
-            font-weight: 400;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             animation: slideUp 0.8s ease-out 0.6s both;
         }
 
+        .description-title {
+            color: #2196f3;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .description-text {
+            color: #546e7a;
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .description-subtitle {
+            color: #78909c;
+            font-size: 1em;
+            line-height: 1.6;
+            font-weight: 400;
+            font-style: italic;
+        }
+
         /* Button */
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
             color: #ffffff;
             padding: 16px 48px;
             border: none;
@@ -158,12 +178,12 @@
             transition: all 0.3s ease;
             display: inline-block;
             animation: slideUp 0.8s ease-out 0.8s both;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.5);
         }
 
         .btn:active {
@@ -191,8 +211,19 @@
             }
 
             .description {
-                font-size: 1em;
                 margin-bottom: 35px;
+            }
+
+            .description-title {
+                font-size: 1em;
+            }
+
+            .description-text {
+                font-size: 1em;
+            }
+
+            .description-subtitle {
+                font-size: 0.95em;
             }
 
             .btn {
@@ -231,9 +262,23 @@
             }
 
             .description {
+                margin-bottom: 30px;
+            }
+
+            .description-title {
+                font-size: 0.95em;
+                margin-bottom: 12px;
+            }
+
+            .description-text {
                 font-size: 0.95em;
                 line-height: 1.7;
-                margin-bottom: 30px;
+                margin-bottom: 12px;
+            }
+
+            .description-subtitle {
+                font-size: 0.9em;
+                line-height: 1.6;
             }
 
             .btn {
@@ -286,9 +331,11 @@
                     </h1>
                 </div>
         
-                <p class="description">
-                    We are launching in 30 days. Stay tuned for something amazing!
-                </p>
+                <div class="description">
+                    <p class="description-title">Improving the Experience</p>
+                    <p class="description-text">We're making focused upgrades to ensure speed, stability, and a cleaner experience.</p>
+                    <p class="description-subtitle">Not offline.<br>Just getting better in 30 days.</p>
+                </div>
         
                 <button class="btn">Coming Soon</button>
     </div>
